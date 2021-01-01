@@ -1,27 +1,8 @@
-# DailyMood
+# Mood Diary (Angular 10)
+This single page application can help you track your mood every day! The longer your history, the more colorful your mood grid will be! This project was built using Angular 10 and Firebase's Realtime Database. Angular routing was used to traverse different pages. Firebase's Authentication was used to allow for user authentication.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+## Showcase
+The showcase will be coming soon.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Built With
+<img src="https://cdn.worldvectorlogo.com/logos/html5.svg" alt="HTML5" width="100px" height="100px"> <img src="https://cdn.worldvectorlogo.com/logos/css-5.svg" alt="CSS3" width="100px" height="100px"><img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" alt="Angular 10" width="100px" height="100px"> <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase" width="100px" height="100px">
