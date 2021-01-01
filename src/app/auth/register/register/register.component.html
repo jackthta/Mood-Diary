@@ -1,0 +1,77 @@
+<main class="container" role="main">
+    <form class="form" [formGroup]="registerForm" role="form">
+
+        <div class="form_group_container" role="group">
+            <div class="form_group">
+                <label class="form_group_label" for="name">Name</label>
+                <input id="name" class="form_group_input" type="text" formControlName="name" name="name" required
+                    role="textbox" aria-required="true" />
+            </div>
+        </div>
+
+        <div class=" form_group_container" role="group">
+            <div class="form_group">
+                <label class="form_group_label" for="email">E-mail</label>
+                <input id="email" class="form_group_input" type="email" formControlName="email" name="email" required
+                    role="textbox" aria-required="true" />
+            </div>
+
+            <!-- Error message -->
+            <p class="error_message" *ngIf="email.errors?.pattern">Please provide a valid e-mail address.</p>
+        </div>
+
+        <div class="form_group_container" role="group">
+            <div class="form_group">
+                <label class="form_group_label" for="password">Password</label>
+                <input id="password" class="form_group_input" type="password" formControlName="password" name="password"
+                    required role="textbox" aria-required="true" />
+            </div>
+
+            <p class="error_message" *ngIf="password.errors?.minlength || confPassword.errors?.minlength">Your
+                password must be at least 6
+                characters long.</p>
+        </div>
+
+        <div class="form_group_container" role="group">
+
+            <div class="form_group">
+                <label class="form_group_label" for="confPassword">Confirm Password</label>
+                <input id="confPassword" class="form_group_input" type="password" formControlName="confirmPassword"
+                    name="confPassword" required role="textbox" aria-required="true" />
+            </div>
+
+            <!-- Error message -->
+            <div>
+                <p class="error_message"
+                    *ngIf="!passwordsMatch(password.value, confPassword.value) && confPassword.value.length > 0">
+                    Your
+                    passwords
+                    do not match!</p>
+            </div>
+        </div>
+
+        <div class="form_links" role="group">
+            <div class="transfer_checkbox_container">
+                <input id="transfCheckbox" class="transfer_checkbox" type="checkbox" formControlName="transferData"
+                    name="transfCheckbox" role="checkbox" />
+                <label class="transfer_checkbox_text" for="transfCheckbox">Transfer moods from guest diary to my new
+                    personal diary</label>
+            </div>
+
+            <button class="form_links_register"
+                [ngClass]="{'form_links_register--disabled': !registerForm.valid, 'form_links_register--hover': registerForm.valid}"
+                type="submit" (click)="tryRegister()"
+                [disabled]="!registerForm.valid || !passwordsMatch(password.value, confPassword.value)"
+                role="button">Register</button>
+        </div>
+
+    </form>
+
+    <div class="splitter" role="separator">
+        <hr class="horizontal_bar" />
+        <p class="splitter_text">or</p>
+        <hr class="horizontal_bar" />
+    </div>
+
+    <button class="google_login" type="button" (click)="tryGoogleLogin()" role="button">Login with google</button>
+</main>

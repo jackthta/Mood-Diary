@@ -1,0 +1,6 @@
+<header class="header-container" role="navigation">
+    <a class="header_link" routerLink="home" role="link">Mood Diary</a>
+
+    <a *ngIf="!isLoggedIn" class="header_link" routerLink="login" role="link">Open my diary</a>
+    <a *ngIf="isLoggedIn" class="header_link" routerLink="home" (click)="onLogOut()" role="link">Lock my diary</a>
+</header>

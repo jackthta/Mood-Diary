@@ -1,0 +1,6 @@
+<main class="container" role="main">
+    <button class="mood" *ngFor="let mood of this.databaseService.DATA.moods | keyvalue"
+        [attr.title]="dateService.showMoodOnDate(mood.key, mood.value.mood)"
+        [ngStyle]="{ 'background-color': mood.value.moodColor }" (click)="onEditSelectedMood(mood)"
+        role="button"></button>
+</main>

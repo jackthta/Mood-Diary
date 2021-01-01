@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding: 3px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    background-color: #EFF8FF;
+    border-radius: 3px;
+}
+
+.mood {
+    width: 30px;
+    height: 30px;
+
+    display: inline-block;
+    cursor: pointer;
+
+    margin: 0px;
+    padding: 0px;
+
+    border: 4px solid #EFF8FF;
+}

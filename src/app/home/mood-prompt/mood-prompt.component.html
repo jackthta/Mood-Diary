@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" class="container" role="form">
+    <h3 class="title" role="heading">How do you feel today?</h3>
+
+    <mat-form-field class="select" appearance="fill">
+        <mat-label class="label">You're feeling ...</mat-label>
+        <mat-select [(value)]="mood_selected" required role="listbox" aria-required="true">
+            <mat-option *ngFor="let mood of moods" [value]="mood.value">{{ mood.viewValue }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button class="submit_container"
+        [ngClass]="{'submit_container--disabled': !mood_selected, 'submit_container--active': mood_selected}"
+        [disabled]="!mood_selected">
+        <input class="checkmark" type="image" alt="Submit button" src="../../../assets/icons/checkmark.svg"
+            [disabled]="!mood_selected" role="button" />
+    </button>
+
+</form>

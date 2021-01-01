@@ -1,0 +1,25 @@
+<div class="container" role="dialog" aria-labelledby="dialogTitle">
+    <h1 id=" dialogTitle" class="title" mat-dialog-title>{{ dateService.formatDate(data.key) }}</h1>
+
+    <div mat-dialog-content class="dropdown_container" role="group">
+        <mat-form-field appearance="fill">
+            <mat-label>You felt ...</mat-label>
+            <mat-select [(value)]="mood_selected" required role="listbox">
+                <mat-option *ngFor="let mood of moods" [value]="mood.value">{{ mood.viewValue }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions class="button_container" role="group">
+        <button class="button_container_cancel" (click)="onCancel()" role="button">
+            <input class="x-mark" type="image" alt="Cancel button" src="../../../../assets/icons/cancel.svg" />
+        </button>
+
+        <button class="button_container_confirm"
+            [ngClass]="{ 'button_container_confirm--active': mood_selected && mood_selected !== data.value.mood, 'button_container_confirm--disabled': !mood_selected || mood_selected === data.value.mood }"
+            [mat-dialog-close]="mood_selected" role="button">
+            <input class="checkmark" type="image" alt="Submit button" src="../../../../assets/icons/checkmark.svg"
+                [disabled]="!mood_selected || mood_selected === data.value.mood" />
+        </button>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<main class="container" role="main">
+    <form class="form" [formGroup]="loginForm" role="form">
+
+        <!-- Error message -->
+        <p [ngClass]="{'error_message': errorMessage.length > 0}">{{ errorMessage }}</p>
+
+        <div class="form_group_container" role="group">
+            <div class="form_group">
+                <label class="form_group_label" for="email">Email</label>
+                <input id="email" class="form_group_input" type="email" formControlName="email" name="email" required
+                    role="textbox" aria-required="true" />
+            </div>
+
+            <!-- Error message -->
+            <p class="error_message" *ngIf="email.errors?.pattern">Please provide a valid e-mail address.</p>
+        </div>
+
+        <div class="form_group_container" role="group">
+            <div class="form_group">
+                <label class="form_group_label" for="password">Password</label>
+                <input id="password" class="form_group_input" type="password" formControlName="password" name="password"
+                    required role="textbox" aria-required="true" />
+            </div>
+
+            <!-- Error message -->
+            <p class="error_message" *ngIf="password.errors?.minlength">Your password should be at least 6 characters.
+            </p>
+        </div>
+
+        <div class="form_links" role="group">
+            <a class="form_links_register" routerLink="/register" role="link">Create a new diary</a>
+
+            <button class="form_links_login"
+                [ngClass]="{'form_links_login--hover': loginForm.valid, 'form_links_login--disabled': !loginForm.valid}"
+                type="submit" (click)="tryLogin()" [disabled]="!loginForm.valid" role="button">Login</button>
+        </div>
+
+    </form>
+
+    <div class="splitter" role="separator">
+        <hr class="horizontal_bar" />
+        <p class="splitter_text">or</p>
+        <hr class="horizontal_bar" />
+    </div>
+
+    <!-- xTODO: Make google login button a component so you don't have to copy paste CSS from login comp to register comp -->
+    <button class="google_login" type="button" (click)="tryGoogleLogin()" role="button">Login with google</button>
+</main>

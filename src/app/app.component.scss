@@ -1,0 +1,23 @@
+.grid-container {
+    width: 100%;
+    height: 100%;
+    padding: 3% 10%;
+
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        "header"
+        "main";
+    row-gap: 15px;
+
+    background-color: #3283C8;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
